@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,11 +9,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        #video-form {
-            padding: 20px;
-            border-top: 1px solid #ccc;
         }
 
         #video-list {
@@ -45,71 +39,54 @@
     </style>
 </head>
 <body>
-    <div id="video-form">
-        <h2>Submit a YouTube Video</h2>
-        <form id="submit-form">
-            <label for="video-link">YouTube Video Link:</label>
-            <input type="text" id="video-link" name="video-link" required>
-            <button type="submit">Submit</button>
-        </form>
+    <div id="video-list">
+        <!-- Video 1 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/r-kvhLlyyvg/hqdefault.jpg" alt="Video 1">
+            <p><a href="https://www.youtube.com/watch?v=r-kvhLlyyvg&t=10s" target="_blank">Video 1</a></p>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/GCEa2FP1_9s/hqdefault.jpg" alt="Video 2">
+            <p><a href="https://www.youtube.com/watch?v=GCEa2FP1_9s" target="_blank">Video 2</a></p>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/G3nfzWB_RD0/hqdefault.jpg" alt="Video 3">
+            <p><a href="https://www.youtube.com/watch?v=G3nfzWB_RD0" target="_blank">Video 3</a></p>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/nHBUgohodVk/hqdefault.jpg" alt="Video 4">
+            <p><a href="https://www.youtube.com/watch?v=nHBUgohodVk" target="_blank">Video 4</a></p>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/Gl76h1KAbAc/hqdefault.jpg" alt="Video 5">
+            <p><a href="https://www.youtube.com/watch?v=Gl76h1KAbAc" target="_blank">Video 5</a></p>
+        </div>
+
+        <!-- Video 6 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/c9Y_coKmJhM/hqdefault.jpg" alt="Video 6">
+            <p><a href="https://www.youtube.com/watch?v=c9Y_coKmJhM" target="_blank">Video 6</a></p>
+        </div>
+
+        <!-- Video 7 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/pUQlF-Qe_8U/hqdefault.jpg" alt="Video 7">
+            <p><a href="https://www.youtube.com/watch?v=pUQlF-Qe_8U" target="_blank">Video 7</a></p>
+        </div>
+
+        <!-- Video 8 -->
+        <div class="video-item">
+            <img src="https://img.youtube.com/vi/DP4Ap4q6LQs/hqdefault.jpg" alt="Video 8">
+            <p><a href="https://www.youtube.com/watch?v=DP4Ap4q6LQs" target="_blank">Video 8</a></p>
+        </div>
     </div>
-
-    <div id="video-list"></div>
-
-    <script>
-        // JavaScript code for handling form submission and displaying videos
-        document.addEventListener('DOMContentLoaded', function() {
-            displayVideos();
-        });
-
-        function addVideo(videoLink) {
-            var videos = JSON.parse(localStorage.getItem('videos')) || [];
-            videos.unshift(videoLink); // Add to the beginning of the array
-            localStorage.setItem('videos', JSON.stringify(videos));
-            displayVideos();
-        }
-
-        function displayVideos() {
-            var videos = JSON.parse(localStorage.getItem('videos')) || [];
-            var videoList = document.getElementById('video-list');
-            videoList.innerHTML = '';
-            videos.forEach(function(videoLink) {
-                var videoItem = document.createElement('div');
-                videoItem.classList.add('video-item');
-                var videoId = getVideoId(videoLink);
-                var thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                var thumbnailImg = document.createElement('img');
-                thumbnailImg.src = thumbnailUrl;
-                var videoName = document.createElement('p');
-                videoName.textContent = videoLink;
-                videoItem.appendChild(thumbnailImg);
-                videoItem.appendChild(videoName);
-                videoList.appendChild(videoItem);
-            });
-        }
-
-        function getVideoId(videoLink) {
-            var match = videoLink.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?.*v=([^&]+)/);
-            if (match) {
-                return match[1];
-            }
-            return null;
-        }
-
-        document.getElementById('submit-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var videoLink = document.getElementById('video-link').value;
-            addVideo(videoLink);
-            document.getElementById('submit-form').reset();
-        });
-
-        document.getElementById('video-list').addEventListener('click', function(event) {
-            var target = event.target;
-            if (target.classList.contains('video-item')) {
-                var videoLink = target.querySelector('p').textContent;
-                window.open(videoLink, '_blank');
-            }
-        });
-    </script>
 </body>
 </html>
