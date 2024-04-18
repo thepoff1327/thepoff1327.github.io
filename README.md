@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +22,12 @@
     <script>
         // Function to load content based on menu selection
         function loadContent(page) {
-            var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page;
+            var rawContentUrl;
+            if (page === 'login') {
+                rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/log%20in";
+            } else {
+                rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page;
+            }
 
             // Fetch the HTML content
             fetch(rawContentUrl)
