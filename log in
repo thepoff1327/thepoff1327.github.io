@@ -2,34 +2,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Sign Up</title>
+    <title>Login</title>
 </head>
 <body>
     <h1>Login</h1>
     <form id="loginForm">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-
-    <h1>Sign Up</h1>
-    <form id="signupForm">
-        <label for="signupEmail">Email:</label>
-        <input type="email" id="signupEmail" name="signupEmail" required><br><br>
-        <label for="signupPassword">Password:</label>
-        <input type="password" id="signupPassword" name="signupPassword" required><br><br>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Log In</button>
     </form>
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent the form from submitting normally
 
-            // Get the email and password from the login form
-            var email = document.getElementById("email").value;
+            // Get the username and password from the form
+            var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            // Authenticate user (Assuming this functionality is handled by your backend)
-            //
+            // Dummy check for demonstration purposes
+            if (password === "password123") {
+                // Password is correct, perform login actions
+                alert("Login successful!");
+                // Redirect to home page or perform other actions here
+            } else {
+                // Password is incorrect, display error message
+                alert("Incorrect password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
