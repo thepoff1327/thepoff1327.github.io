@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
         <ul>
             <li><a href="#" onclick="loadContent('home')">Home</a></li>
             <li><a href="#" onclick="loadContent('videos')">Videos</a></li>
-            <li><a href="#" onclick="loadContent('about_me')">About Me</a></li>
+            <li><a href="#" onclick="loadContent('about me')">About Me</a></li>
             <!-- Add more menu items as needed -->
         </ul>
     </div>
@@ -23,7 +24,7 @@
     <script>
         // Function to load content based on menu selection
         function loadContent(page) {
-            var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page;
+            var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page.replace(/ /g, '%20');
 
             // Fetch the HTML content
             fetch(rawContentUrl)
