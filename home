@@ -36,15 +36,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var titles = document.querySelectorAll("#welcome-title, #contact-title");
-            var colors = ["red", "green", "blue", "orange", "purple", "yellow"]; // Array of colors
 
-            // Randomly select a color from the colors array (except white and black)
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            // Array of colors (excluding white and black)
+            var colors = ["red", "green", "blue", "orange", "purple", "yellow", "cyan", "magenta"];
 
-            // Apply the randomly selected color to the titles
-            for (var i = 0; i < titles.length; i++) {
-                titles[i].style.color = randomColor;
-            }
+            // Apply a random color to each title
+            titles.forEach(function(title) {
+                var randomColor = colors[Math.floor(Math.random() * colors.length)];
+                title.style.color = randomColor;
+            });
         });
     </script>
 </body>
