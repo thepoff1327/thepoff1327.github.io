@@ -3,6 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Content</title>
+    <style>
+        /* Style for the home link */
+        #menu ul li a[href="#"] {
+            color: green; /* Set link color to green */
+        }
+    </style>
 </head>
 <body>
     <!-- Menu -->
@@ -10,7 +16,6 @@
         <ul>
             <li><a href="#" onclick="loadContent('home')">Home</a></li>
             <!-- Add more menu items as needed -->
-            <li style="float: right;"><a href="#" onclick="loadContent('login')">Log In</a></li>
         </ul>
     </div>
 
