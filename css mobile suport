@@ -10,14 +10,6 @@ h1, h2, h3, p {
     padding: 10px;
 }
 
-h1, h2 {
-    color: #FFF; /* Set initial color to white */
-}
-
-h2 {
-    color: #FFF;
-}
-
 form {
     padding: 10px;
 }
