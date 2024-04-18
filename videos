@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Sharing Site</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #video-form {
+            padding: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        #video-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .video-item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .video-item:hover {
+            border-color: green;
+            cursor: pointer;
+        }
+
+        .video-item img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-form">
+        <h2>Submit a YouTube Video</h2>
+        <form id="submit-form">
+            <label for="video-link">YouTube Video Link:</label>
+            <input type="text" id="video-link" name="video-link" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="video-list"></div>
+
+    <script>
+        // JavaScript code for handling form submission and displaying videos
+        document.addEventListener('DOMContentLoaded', function() {
+            displayVideos();
+
+            document.getElementById('submit-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var videoLink = document.getElementById('video-link').value;
+                addVideo(videoLink);
+                displayVideos();
+                document.getElementById('submit-form').reset();
+            });
+        });
+
+        function addVideo(videoLink) {
+            var videos = JSON.parse(localStorage.getItem('videos')) || [];
+            videos.push(videoLink);
+            localStorage.setItem('videos', JSON.stringify(videos));
+        }
+
+        function displayVideos() {
+            var videos = JSON.parse(localStorage.getItem('videos')) || [];
+            var videoList = document.getElementById('video-list');
+            videoList.innerHTML = '';
+            videos.forEach(function(videoLink) {
+                var videoItem = document.createElement('div');
+                videoItem.classList.add('video-item');
+                var videoId = getVideoId(videoLink);
+                var thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                var thumbnailImg = document.createElement('img');
+                thumbnailImg.src = thumbnailUrl;
+                var videoName = document.createElement('p');
+                videoName.textContent = videoLink;
+                videoItem.appendChild(thumbnailImg);
+                videoItem.appendChild(videoName);
+                videoList.appendChild(videoItem);
+            });
+        }
+
+        function getVideoId(videoLink) {
+            var match = videoLink.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?.*v=([^&]+)/);
+            if (match) {
+                return match[1];
+            }
+            return null;
+        }
+
+        document.getElementById('video-list').addEventListener('click', function(event) {
+            var target = event.target;
+            if (target.classList.contains('video-item')) {
+                var videoLink = target.querySelector('p').textContent;
+                window.open(videoLink, '_blank');
+            }
+        });
+    </script>
+</body>
+</html>
