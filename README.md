@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <div id="menu">
         <ul>
             <li><a href="#" onclick="loadContent('home')">Home</a></li>
+            <li><a href="#" onclick="loadContent('videos')">Videos</a></li>
             <!-- Add more menu items as needed -->
         </ul>
     </div>
