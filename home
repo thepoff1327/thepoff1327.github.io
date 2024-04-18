@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,41 +9,89 @@
     <title>ThePoff Site</title>
     
     <!-- CSS styles -->
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/css%20mobile%20suport">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: #f1f1f1;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .youtube-label {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            display: none; /* Initially hide */
+        }
+
+        .youtube-label.show {
+            display: block; /* Show when scrolling */
+        }
+    </style>
 </head>
 <body>
-    <h1 id="welcome-title">Welcome to my site about my YouTube channel</h1>
-    <p>I'm thrilled to welcome you to my YouTube channel!</p>
-    <p>Here, you'll find a variety of videos on various exciting topics.</p>
-    <p>Don't forget to subscribe and enable notifications to never miss a new video!</p>
-
-    <!-- Combined form for contacting owner and sending message -->
-    <h2 id="contact-title">Contact Me / Send Me a Message</h2>
-    <form action="https://formspree.io/f/xjvnjkar" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        <input type="hidden" name="_subject" value="Message for the owner">
-        <button type="submit">Send</button>
-    </form>
+    <div class="sticky">
+        <h1 id="welcome-title">Welcome to my site about my YouTube channel</h1>
+        <p>I'm thrilled to welcome you to my YouTube channel!</p>
+        <p>Here, you'll find a variety of videos on various exciting topics.</p>
+        <p>Don't forget to subscribe and enable notifications to never miss a new video!</p>
+        
+        <!-- Combined form for contacting owner and sending message -->
+        <h2 id="contact-title">Contact Me / Send Me a Message</h2>
+        <form action="https://formspree.io/f/xjvnjkar" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <input type="hidden" name="_subject" value="Message for the owner">
+            <button type="submit">Send</button>
+        </form>
+    </div>
 
     <!-- YouTube channel label -->
     <a class="youtube-label" href="https://www.youtube.com/@thepoff1327">Go to YouTube channel</a>
 
-    <!-- JavaScript for setting title colors -->
+    <!-- JavaScript for setting title colors and sticky behavior -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var welcomeTitle = document.getElementById("welcome-title");
             var contactTitle = document.getElementById("contact-title");
+            var youtubeLabel = document.querySelector(".youtube-label");
 
             // Set welcome title color to green
             welcomeTitle.style.color = "green";
 
             // Set contact title color to red
             contactTitle.style.color = "red";
+
+            // Show YouTube label when scrolling
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 200) {
+                    youtubeLabel.classList.add("show");
+                } else {
+                    youtubeLabel.classList.remove("show");
+                }
+            });
+
+            // Smooth scrolling when clicking on YouTube label
+            youtubeLabel.addEventListener("click", function(event) {
+                event.preventDefault();
+                document.querySelector("#site-content").scrollIntoView({ behavior: "smooth" });
+            });
         });
     </script>
 </body>
