@@ -1,99 +1,37 @@
-
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en"> <!-- Changed language to English -->
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Bienvenue sur ma chaîne YouTube">
-    <meta name="keywords" content="YouTube, chaîne, vidéos, contenu">
-    <meta name="author" content="Votre nom">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag for responsive design -->
+    <meta name="description" content="Welcome to my YouTube channel"> <!-- Translated description -->
+    <meta name="keywords" content="YouTube, channel, videos, content"> <!-- Translated keywords -->
+    <meta name="author" content="Your name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThePoff Site</title>
     
     <!-- CSS styles -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: white; /* Set text color to white */
-        }
-
-        h1, h2, h3, p {
-            padding: 10px;
-        }
-
-        h1, h2 {
-            color: red; /* Randomly select red or green color for titles */
-        }
-
-        h2 {
-            color: green;
-        }
-
-        form {
-            padding: 10px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select,
-        button {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-
-        /* Label for YouTube channel */
-        .youtube-label {
-            position: fixed;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/css%20mobile%20suport">
 </head>
 <body>
-    <h1>Bienvenue sur ma chaîne YouTube</h1>
-    <p>Je suis ravi de vous accueillir sur ma chaîne YouTube!</p>
-    <p>Ici, vous trouverez une variété de vidéos sur différents sujets passionnants.</p>
-    <p>N'oubliez pas de vous abonner et d'activer les notifications pour ne manquer aucune nouvelle vidéo!</p>
+    <h1>Welcome to my YouTube channel</h1>
+    <p>I'm thrilled to welcome you to my YouTube channel!</p>
+    <p>Here, you'll find a variety of videos on various exciting topics.</p>
+    <p>Don't forget to subscribe and enable notifications to never miss a new video!</p>
 
     <!-- Combined form for contacting owner and sending message -->
-    <h2>Contactez-moi / Envoyez-moi un message</h2>
+    <h2>Contact Me / Send Me a Message</h2>
     <form action="https://formspree.io/f/xjvnjkar" method="POST">
-        <label for="name">Nom:</label>
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        <input type="hidden" name="_subject" value="Message pour le propriétaire"> <!-- Specify subject for the email -->
-        <button type="submit">Envoyer</button>
+        <input type="hidden" name="_subject" value="Message for the owner"> <!-- Specify subject for the email -->
+        <button type="submit">Send</button>
     </form>
 
     <!-- YouTube channel label -->
-    <a class="youtube-label" href="https://www.youtube.com/@thepoff1327">Aller chez la chaîne YouTube</a>
+    <a class="youtube-label" href="https://www.youtube.com/@thepoff1327">Go to YouTube channel</a>
 
     <!-- JavaScript for random title colors -->
     <script>
