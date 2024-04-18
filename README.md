@@ -1,4 +1,5 @@
-<html lang="en"> <!-- Changed language to English -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
         <ul>
             <li><a href="#" onclick="loadContent('home')">Home</a></li>
             <!-- Add more menu items as needed -->
+            <li style="float: right;"><a href="#" onclick="loadContent('login')">Log In</a></li>
         </ul>
     </div>
 
