@@ -32,7 +32,7 @@ button {
 button {
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border: 2px solid #4CAF50; /* Add green border */
     cursor: pointer;
 }
 
@@ -55,4 +55,17 @@ button:disabled {
     color: white;
     padding: 10px;
     cursor: pointer;
+}
+
+/* Make clickable elements white with green border */
+a, button {
+    color: white;
+    border: 2px solid #4CAF50; /* Add green border */
+    padding: 10px; /* Add padding */
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block; /* Make buttons and links inline-block to add padding */
+}
+
+a:hover, button:hover {
+    background-color: #4CAF50; /* Change background color on hover */
 }
