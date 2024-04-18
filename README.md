@@ -24,18 +24,33 @@
     <script>
         // Function to load content based on menu selection
         function loadContent(page) {
-            var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page.replace(/ /g, '%20');
+            if (page === 'about me') {
+                // Fetch the HTML content for the About Me page
+                var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/about%20me";
+                fetch(rawContentUrl)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Insert the fetched HTML content into the site
+                        document.getElementById("site-content").innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error("Error fetching site content:", error);
+                    });
+            } else {
+                // Construct the URL for other pages
+                var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page.replace(/ /g, '%20');
 
-            // Fetch the HTML content
-            fetch(rawContentUrl)
-                .then(response => response.text())
-                .then(html => {
-                    // Insert the fetched HTML content into the site
-                    document.getElementById("site-content").innerHTML = html;
-                })
-                .catch(error => {
-                    console.error("Error fetching site content:", error);
-                });
+                // Fetch the HTML content
+                fetch(rawContentUrl)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Insert the fetched HTML content into the site
+                        document.getElementById("site-content").innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error("Error fetching site content:", error);
+                    });
+            }
         }
 
         // Load the home page by default
