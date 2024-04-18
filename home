@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/css%20mobile%20suport">
 </head>
 <body>
-    <h1 id="welcome-title">Welcome to my YouTube channel</h1>
+    <h1 id="welcome-title">Welcome to my site about my YouTube channel</h1>
     <p>I'm thrilled to welcome you to my YouTube channel!</p>
     <p>Here, you'll find a variety of videos on various exciting topics.</p>
     <p>Don't forget to subscribe and enable notifications to never miss a new video!</p>
@@ -41,10 +42,16 @@
             var colors = ["red", "green", "blue", "orange", "purple", "yellow", "cyan", "magenta"];
 
             // Apply a random color to each title
-            titles.forEach(function(title) {
-                var randomColor = colors[Math.floor(Math.random() * colors.length)];
-                title.style.color = randomColor;
-            });
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            titles[0].style.color = randomColor; // Apply random color to welcome title
+
+            // Apply a different random color to the contact title
+            var contactColor = colors[Math.floor(Math.random() * colors.length)];
+            while (contactColor === randomColor) {
+                // Ensure the contact title color is different from the welcome title color
+                contactColor = colors[Math.floor(Math.random() * colors.length)];
+            }
+            titles[1].style.color = contactColor; // Apply random color to contact title
         });
     </script>
 </body>
