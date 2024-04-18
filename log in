@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,21 +32,4 @@
             var password = document.getElementById("password").value;
 
             // Authenticate user (Assuming this functionality is handled by your backend)
-            // If authentication is successful, redirect to home page
-            alert("Logged in successfully!");
-        });
-
-        document.getElementById("signupForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-
-            // Get the email and password from the signup form
-            var signupEmail = document.getElementById("signupEmail").value;
-            var signupPassword = document.getElementById("signupPassword").value;
-
-            // Register user (Assuming this functionality is handled by your backend)
-            // If registration is successful, redirect to home page
-            alert("Signed up successfully!");
-        });
-    </script>
-</body>
-</html>
+            //
