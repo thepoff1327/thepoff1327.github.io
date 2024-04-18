@@ -3,12 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Content</title>
-    <style>
-        /* Style for the home link */
-        #menu ul li a[href="#"] {
-            color: green; /* Set link color to green */
-        }
-    </style>
 </head>
 <body>
     <!-- Menu -->
@@ -27,30 +21,18 @@
     <script>
         // Function to load content based on menu selection
         function loadContent(page) {
-            if (page === 'login') {
-                // Login page content
-                document.getElementById("site-content").innerHTML = `
-                    <h1>Login</h1>
-                    <form id="loginForm">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required><br><br>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required><br><br>
-                        <button type="submit">Log In</button>
-                    </form>
-                `;
-            } else {
-                // Fetch the HTML content for other pages
-                var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page;
-                fetch(rawContentUrl)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById("site-content").innerHTML = html;
-                    })
-                    .catch(error => {
-                        console.error("Error fetching site content:", error);
-                    });
-            }
+            var rawContentUrl = "https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/" + page;
+
+            // Fetch the HTML content
+            fetch(rawContentUrl)
+                .then(response => response.text())
+                .then(html => {
+                    // Insert the fetched HTML content into the site
+                    document.getElementById("site-content").innerHTML = html;
+                })
+                .catch(error => {
+                    console.error("Error fetching site content:", error);
+                });
         }
 
         // Load the home page by default
