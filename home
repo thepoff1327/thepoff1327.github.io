@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,25 +32,17 @@
     <!-- YouTube channel label -->
     <a class="youtube-label" href="https://www.youtube.com/@thepoff1327">Go to YouTube channel</a>
 
-    <!-- JavaScript for random title colors -->
+    <!-- JavaScript for setting title colors -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var titles = document.querySelectorAll("#welcome-title, #contact-title");
+            var welcomeTitle = document.getElementById("welcome-title");
+            var contactTitle = document.getElementById("contact-title");
 
-            // Array of colors (excluding white and black)
-            var colors = ["red", "green", "blue", "orange", "purple", "yellow", "cyan", "magenta"];
+            // Set welcome title color to green
+            welcomeTitle.style.color = "green";
 
-            // Apply a random color to each title
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
-            titles[0].style.color = randomColor; // Apply random color to welcome title
-
-            // Apply a different random color to the contact title
-            var contactColor = colors[Math.floor(Math.random() * colors.length)];
-            while (contactColor === randomColor) {
-                // Ensure the contact title color is different from the welcome title color
-                contactColor = colors[Math.floor(Math.random() * colors.length)];
-            }
-            titles[1].style.color = contactColor; // Apply random color to contact title
+            // Set contact title color to red
+            contactTitle.style.color = "red";
         });
     </script>
 </body>
