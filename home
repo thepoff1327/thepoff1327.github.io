@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en"> <!-- Changed language to English -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Welcome to my YouTube channel"> <!-- Translated description -->
-    <meta name="keywords" content="YouTube, channel, videos, content"> <!-- Translated keywords -->
+    <meta name="description" content="Welcome to my YouTube channel">
+    <meta name="keywords" content="YouTube, channel, videos, content">
     <meta name="author" content="Your name">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThePoff Site</title>
@@ -12,13 +11,13 @@
     <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepoff1327/thepoff1327.github.io/main/css%20mobile%20suport">
 </head>
 <body>
-    <h1>Welcome to my YouTube channel</h1>
+    <h1 id="welcome-title">Welcome to my YouTube channel</h1>
     <p>I'm thrilled to welcome you to my YouTube channel!</p>
     <p>Here, you'll find a variety of videos on various exciting topics.</p>
     <p>Don't forget to subscribe and enable notifications to never miss a new video!</p>
 
     <!-- Combined form for contacting owner and sending message -->
-    <h2>Contact Me / Send Me a Message</h2>
+    <h2 id="contact-title">Contact Me / Send Me a Message</h2>
     <form action="https://formspree.io/f/xjvnjkar" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
@@ -26,7 +25,7 @@
         <input type="email" id="email" name="email" required><br><br>
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        <input type="hidden" name="_subject" value="Message for the owner"> <!-- Specify subject for the email -->
+        <input type="hidden" name="_subject" value="Message for the owner">
         <button type="submit">Send</button>
     </form>
 
@@ -36,14 +35,15 @@
     <!-- JavaScript for random title colors -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Randomly select red or green color for titles
-            var titles = document.querySelectorAll("h1, h2");
+            var titles = document.querySelectorAll("#welcome-title, #contact-title");
+            var colors = ["red", "green", "blue", "orange", "purple", "yellow"]; // Array of colors
+
+            // Randomly select a color from the colors array (except white and black)
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Apply the randomly selected color to the titles
             for (var i = 0; i < titles.length; i++) {
-                if (Math.random() < 0.5) {
-                    titles[i].style.color = "red";
-                } else {
-                    titles[i].style.color = "green";
-                }
+                titles[i].style.color = randomColor;
             }
         });
     </script>
