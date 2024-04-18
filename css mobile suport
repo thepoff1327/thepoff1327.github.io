@@ -3,11 +3,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: white; /* Set text color to white */
 }
 
 h1, h2, h3, p {
     padding: 10px;
+    color: inherit; /* Inherit color from parent */
+}
+
+h1, h2 {
+    color: inherit; /* Inherit color from parent */
 }
 
 form {
