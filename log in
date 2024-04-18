@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation and Verification</title>
+</head>
+<body>
+    <h1>Login to Your Account</h1>
+    <form id="loginForm">
+        <label for="gmail">Gmail:</label>
+        <input type="text" id="gmail" name="gmail" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Log In</button>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the Gmail and password from the form
+            var gmail = document.getElementById("gmail").value;
+            var password = document.getElementById("password").value;
+
+            // Send the Gmail and password to your backend for authentication
+            // Here, you would make an API request to your backend with the user's credentials
+            // For demonstration purposes, let's assume the authentication is successful
+            var authenticationSuccessful = true;
+
+            if (authenticationSuccessful) {
+                // If authentication is successful, redirect the user to the dashboard or home page
+                alert("Login successful! Redirecting to dashboard...");
+                // Redirect code goes here
+            } else {
+                // If authentication fails, display an error message to the user
+                alert("Invalid Gmail or password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
