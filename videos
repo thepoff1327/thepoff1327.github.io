@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +29,7 @@
             padding: 10px;
             border: 2px solid transparent;
             transition: border-color 0.3s ease;
-            box-sizing: border-box; /* Added box-sizing to fix layout */
+            box-sizing: border-box;
         }
 
         .video-item:hover {
@@ -59,20 +60,13 @@
         // JavaScript code for handling form submission and displaying videos
         document.addEventListener('DOMContentLoaded', function() {
             displayVideos();
-
-            document.getElementById('submit-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var videoLink = document.getElementById('video-link').value;
-                addVideo(videoLink);
-                displayVideos();
-                document.getElementById('submit-form').reset();
-            });
         });
 
         function addVideo(videoLink) {
             var videos = JSON.parse(localStorage.getItem('videos')) || [];
-            videos.push(videoLink);
+            videos.unshift(videoLink); // Add to the beginning of the array
             localStorage.setItem('videos', JSON.stringify(videos));
+            displayVideos();
         }
 
         function displayVideos() {
@@ -101,6 +95,13 @@
             }
             return null;
         }
+
+        document.getElementById('submit-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var videoLink = document.getElementById('video-link').value;
+            addVideo(videoLink);
+            document.getElementById('submit-form').reset();
+        });
 
         document.getElementById('video-list').addEventListener('click', function(event) {
             var target = event.target;
