@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - ThePoff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Me</h1>
+    <p>Hello, I'm ThePoff, formerly known as Poff1327. Due to security reasons, I've rebranded myself as ThePoff. I'm 13 years old and passionate about creating content online.</p>
+    <p>I enjoy spending time with friends and creating videos. Whether it's vlogs, gaming content, or tutorials, I love expressing myself through video.</p>
+    <p>Currently, I'm in the 8th grade at Luice Luimier School in Morocco. While I'm not thrilled about my school, I'm dedicated to learning and growing.</p>
+    <p>I have a knack for athletics, particularly running and jumping. I also practice boxing and enjoy the physical and mental challenges it brings.</p>
+    <p>To get a better sense of who I am and what I do, feel free to check out my <a href="https://www.youtube.com/@thepoff1327" target="_blank">YouTube channel</a>.</p>
+    <p>Thanks for taking the time to learn a bit about me. I'm excited to continue sharing my journey and connecting with others through my content.</p>
+</body>
+</html>
